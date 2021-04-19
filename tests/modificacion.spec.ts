@@ -2,6 +2,8 @@ import 'mocha';
 import {expect} from 'chai';
 import {AddReduce} from '../src/modificacion/addreduce';
 import {SubReduce} from '../src/modificacion/subreduce';
+import {ProdReduce} from '../src/modificacion/prodreduce';
+import {DivReduce} from '../src/modificacion/divreduce';
 import {Reduce} from '../src/modificacion/reduce';
 
 describe('Modificación', () => {
@@ -30,6 +32,34 @@ describe('Modificación', () => {
 
         it('array2.run() not null', () => {
         expect(array2.run()).not.to.be.equal(null);
+        });
+
+    });
+
+    describe('Prueba ProdReduce', () => {
+        var array3 = new ProdReduce();
+        array3.setArray([1,2,3,4])
+
+        it('array3.reduce() returns 24', () => {
+            expect(array3.reduce()).to.be.equal(24);
+        });
+
+        it('array3.run() not null', () => {
+        expect(array3.run()).not.to.be.equal(null);
+        });
+
+    });
+
+    describe('Prueba DivReduce', () => {
+        var array4 = new DivReduce();
+        array4.setArray([1,2,3,4])
+
+        it('array4.reduce() returns ', () => {
+            expect(array4.reduce()).to.be.equal(0.041666666666666664);
+        });
+
+        it('array4.run() not null', () => {
+        expect(array4.run()).not.to.be.equal(null);
         });
 
     });

@@ -2,7 +2,8 @@
     "entryPoints": [
         "./src/modificacion/reduce.ts",
         "./src/modificacion/addreduce.ts",
-        "./src/modificacion/subreduce.ts"   
+        "./src/modificacion/subreduce.ts",
+        "./src/modificacion/prodreduce.ts"   
     ],
     "out": "./docs"
 

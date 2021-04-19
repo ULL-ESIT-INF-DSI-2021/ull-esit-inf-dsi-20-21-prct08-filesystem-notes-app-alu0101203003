@@ -19,14 +19,18 @@ export abstract class Reduce {
     * Paso 1
     */
     public run() {
+    // Hook inicial
+    this.beforeReduce();
     // Reducir
     this.reduce();
-    // Hook
+    // Hook final
     this.afterReduce();
     }
 
     public abstract reduce(): void;
 
+    // Hooks (opcionales)
+    protected beforeReduce() {}
     protected afterReduce() {}
 }
 
