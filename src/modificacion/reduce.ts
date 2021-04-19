@@ -30,8 +30,10 @@ export abstract class Reduce {
     public abstract reduce(): void;
 
     // Hooks (opcionales)
-    protected beforeReduce() {}
-    protected afterReduce() {}
+    protected beforeReduce() {
+        console.log("El vector ha reducir es:" + this.array);}
+    protected afterReduce() {
+    }
 }
 
 

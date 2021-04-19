@@ -25,5 +25,5 @@ import {Reduce} from '../modificacion/reduce';
     */
     protected afterReduce() {
         console.log("El vector fue reducido con multiplicación");
-      }
+    }
 }

@@ -54,7 +54,7 @@ describe('Modificación', () => {
         var array4 = new DivReduce();
         array4.setArray([1,2,3,4])
 
-        it('array4.reduce() returns ', () => {
+        it('array4.reduce() returns 0.041666666666666664', () => {
             expect(array4.reduce()).to.be.equal(0.041666666666666664);
         });
 
