@@ -32,6 +32,7 @@ describe('Pruebas App', () => {
   describe('Pruebas Usuario', () => {
 
     var usuario1 = new Usuario("raul");
+    usuario1.añadirNota("NotaPrueba","Cuerpo","amarillo");
 
     it('usuario1.getNombre() returns raul', () => {
       expect(usuario1.getNombre()).to.be.equal("raul");
@@ -41,20 +42,20 @@ describe('Pruebas App', () => {
         expect(usuario1.existeUsuario(usuario1.getNombre())).to.be.equal(true);
     });
 
-    it('usuario1.existeNota(usuario1.getNombre(),"Nota1")) returns true', () => {
-        expect(usuario1.existeNota(usuario1.getNombre(),"Nota1")).to.be.equal(true);
-    });
-
-    it('usuario1.colorear("texto","rojo") returns red texto', () => {
-        expect(usuario1.colorear("texto","rojo")).to.be.equal(chalk.red("texto"));
-    });
-   
     it('usuario1.añadirNota("Nota1","Cuerpo","rojo") returns not null', () => {
         expect(usuario1.añadirNota("Nota1","Cuerpo","rojo")).not.to.be.equal(null);
     });
 
-    it('usuario1.modificarNota("Nota1","","Cuerpo","rojo") returns not null', () => {
-        expect(usuario1.modificarNota("Nota1","","Cuerpo","rojo")).not.to.be.equal(null);
+    it('usuario1.modificarNota("Nota1","","Cuerpo2","rojo") returns not null', () => {
+        expect(usuario1.modificarNota("Nota1","","Cuerpo2","verde")).not.to.be.equal(null);
+    });
+
+    it('usuario1.existeNota(usuario1.getNombre(),"NotaPrueba")) returns true', () => {
+        expect(usuario1.existeNota(usuario1.getNombre(),"NotaPrueba")).to.be.equal(true);
+    });
+
+    it('usuario1.colorear("texto","rojo") returns red texto', () => {
+        expect(usuario1.colorear("texto","rojo")).to.be.equal(chalk.red("texto"));
     });
 
     it('usuario1.eliminarNota("Nota1") returns not null', () => {
