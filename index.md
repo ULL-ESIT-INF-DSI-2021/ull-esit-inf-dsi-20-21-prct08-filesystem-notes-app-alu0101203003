@@ -246,7 +246,7 @@ public añadirNota(titulo :string, cuerpo :string, color :string){
     }
 ```
 
-<img src="img/1.PNG" alt=""/> <img src="img/Captura1e.PNG" alt="" />
+<img src="img/1.PNG" alt=""/>
 
 #### 2.2 modificarNota
 
@@ -280,7 +280,7 @@ public modificarNota(titulo :string, tituloMod :string, cuerpoMod :string, color
         }
     }
 ```
-<img src="img/2.PNG" alt=""/> <img src="img/Captura1e.PNG" alt="" />
+<img src="img/2.PNG" alt=""/>
 
 #### 2.3 eliminarNota
 
@@ -297,7 +297,7 @@ La función eliminarNota permite eliminar una nota del directorio del usuario re
         }
     }
 ```
-<img src="img/3.PNG" alt=""/> <img src="img/Captura1e.PNG" alt="" />
+<img src="img/3.PNG" alt=""/>
 
 #### 2.4 listarNotas
 
@@ -315,7 +315,7 @@ La función listarNotas permite mostrar todas las notas del directorio del usuar
         });
     }
 ```
-<img src="img/4.PNG" alt=""/> <img src="img/Captura1e.PNG" alt="" />
+<img src="img/4.PNG" alt=""/>
 
 #### 2.5 leerNota
 
@@ -333,7 +333,7 @@ La función leerNota permite leer una nota del directorio del usuario formateada
         }
     }
 ```
-<img src="img/5.PNG" alt=""/> <img src="img/Captura1e.PNG" alt="" />
+<img src="img/5.PNG" alt=""/>
 
 ### Conclusiones
 
