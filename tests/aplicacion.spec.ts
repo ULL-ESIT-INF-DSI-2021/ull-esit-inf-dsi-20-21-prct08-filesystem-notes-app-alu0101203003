@@ -61,6 +61,10 @@ describe('Pruebas App', () => {
     it('usuario1.eliminarNota("Nota1") returns not null', () => {
         expect(usuario1.eliminarNota("Nota1")).not.to.be.equal(null);
     });
+
+    it('usuario1.listarNotas() returns not null', () => {
+        expect(usuario1.listarNotas()).not.to.be.equal(null);
+    });
     
   });
 

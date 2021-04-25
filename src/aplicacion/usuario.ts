@@ -121,6 +121,21 @@ export class Usuario {
             return false
         }
     }
+
+    /**
+     * Función listarNotas.
+     * Permite mostrar todas las notas del directorio del usuario
+     */ 
+    public listarNotas(){
+        console.log(`Notas del usuario ${this.nombre} :`);
+
+        fs.readdirSync(`src/aplicacion/notas/${this.nombre}`).forEach((item) => {
+            var nota = fs.readFileSync(`src/aplicacion/notas/${this.nombre}/${item}`);
+            var notaParseada = JSON.parse(nota.toString());
+            var titulosColoreados :string = this.colorear(notaParseada.titulo,notaParseada.color);
+            console.log(titulosColoreados)
+        });
+    }
     
     public colorear (texto :string, color :string){
         var resultado = "";

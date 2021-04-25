@@ -48,7 +48,7 @@ const chalk=require('chalk')
  */
  yargs.command({
   command: 'modify',
-  describe: 'Modifica una nueva nota',
+  describe: 'Modifica una nota',
   builder: {
     usuario: {
       describe: 'Nombre del usuario',
@@ -100,11 +100,41 @@ const chalk=require('chalk')
       demandOption: true,
       type: 'string',
     },
+    titulo: {
+      describe: 'Titulo de la nota',
+      demandOption: true,
+      type: 'string',
+    },
   },
   handler(argv) {
     if (typeof argv.usuario === 'string' && typeof argv.titulo === 'string') {
       var usuario = new Usuario(argv.usuario);
       usuario.eliminarNota(argv.titulo);
+      
+    } else {
+      console.log(chalk.red("Error. Comando mal especificado"));
+    }
+  },
+});
+
+/**
+ * Comando list.
+ * Lista las notas del directorio del usuario
+ */
+ yargs.command({
+  command: 'list',
+  describe: 'lista las notas del usuario',
+  builder: {
+    usuario: {
+      describe: 'Nombre del usuario',
+      demandOption: true,
+      type: 'string',
+    },
+  },
+  handler(argv) {
+    if (typeof argv.usuario === 'string') {
+      var usuario = new Usuario(argv.usuario);
+      usuario.listarNotas();
       
     } else {
       console.log(chalk.red("Error. Comando mal especificado"));
