@@ -13,10 +13,18 @@ export class Usuario {
      * @param nombre del usuario
      */ 
     constructor(private nombre :string) {
-        if (!existeUsuario(this.nombre)){
+        if (!this.existeUsuario(this.nombre)){
             fs.mkdirSync(`src/aplicacion/notas/${this.nombre}`);
         }
     }
+
+    /**
+     * Funcion getNombre
+     * @returns nombre
+     */
+    public getNombre(){
+        return this.nombre
+    }  
 
     /**
      * Función añadirNota.
@@ -26,7 +34,7 @@ export class Usuario {
      * @param color color de la nota
      */ 
     public añadirNota(titulo :string, cuerpo :string, color :string){
-        if (existeNota(this.nombre,titulo)){
+        if (this.existeNota(this.nombre,titulo)){
             console.log(chalk.red("Error. La nota ya existe"));
         } else {
             var nota = new Nota(titulo,cuerpo,color);
@@ -37,43 +45,42 @@ export class Usuario {
         }
     }
 
-}
-
-function existeUsuario (nombre :string){
-    if (fs.existsSync(`src/aplicacion/notas/${nombre}`)){
-        return true
-    } else {
-        return false
+    public existeUsuario (nombre :string){
+        if (fs.existsSync(`src/aplicacion/notas/${nombre}`)){
+            return true
+        } else {
+            return false
+        }
     }
-}
-
-function existeNota (nombre :string, titulo :string){
-    if (fs.existsSync(`src/aplicacion/notas/${nombre}/${titulo}.json`)){
-        return true
-    } else {
-        return false
+    
+    public existeNota (nombre :string, titulo :string){
+        if (fs.existsSync(`src/aplicacion/notas/${nombre}/${titulo}.json`)){
+            return true
+        } else {
+            return false
+        }
     }
-}
-
-function colorear (texto :string, color :string){
-    var resultado = "";
-
-    switch (color){
-        case "rojo":
-            resultado = chalk.red(`${texto}`)
-            break;
-        case "verde":
-            resultado = chalk.green(`${texto}`)
-            break;
-        case "azul":
-            resultado = chalk.blue(`${texto}`)
-            break;
-        case "amarillo":
-            resultado = chalk.yellow(`${texto}`)
-            break;
-        default:
-            break;
+    
+    public colorear (texto :string, color :string){
+        var resultado = "";
+    
+        switch (color){
+            case "rojo":
+                resultado = chalk.red(`${texto}`)
+                break;
+            case "verde":
+                resultado = chalk.green(`${texto}`)
+                break;
+            case "azul":
+                resultado = chalk.blue(`${texto}`)
+                break;
+            case "amarillo":
+                resultado = chalk.yellow(`${texto}`)
+                break;
+            default:
+                break;
+        }
+    
+        return resultado
     }
-
-    return resultado
 }
