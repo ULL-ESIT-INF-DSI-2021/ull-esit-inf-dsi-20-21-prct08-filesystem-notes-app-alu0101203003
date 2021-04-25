@@ -56,6 +56,10 @@ describe('Pruebas App', () => {
     it('usuario1.modificarNota("Nota1","","Cuerpo","rojo") returns not null', () => {
         expect(usuario1.modificarNota("Nota1","","Cuerpo","rojo")).not.to.be.equal(null);
     });
+
+    it('usuario1.eliminarNota("Nota1") returns not null', () => {
+        expect(usuario1.eliminarNota("Nota1")).not.to.be.equal(null);
+    });
     
   });
 

@@ -42,7 +42,7 @@ const chalk=require('chalk')
     },
   });
 
-  /**
+/**
  * Comando modify.
  * Modifica una nota al directorio del usuario
  */
@@ -87,5 +87,30 @@ const chalk=require('chalk')
   },
 });
 
-  yargs.argv;
+/**
+ * Comando remove.
+ * Elimina una nota al directorio del usuario
+ */
+ yargs.command({
+  command: 'remove',
+  describe: 'elimina una nota',
+  builder: {
+    usuario: {
+      describe: 'Nombre del usuario',
+      demandOption: true,
+      type: 'string',
+    },
+  },
+  handler(argv) {
+    if (typeof argv.usuario === 'string' && typeof argv.titulo === 'string') {
+      var usuario = new Usuario(argv.usuario);
+      usuario.eliminarNota(argv.titulo);
+      
+    } else {
+      console.log(chalk.red("Error. Comando mal especificado"));
+    }
+  },
+});
+
+yargs.argv;
 

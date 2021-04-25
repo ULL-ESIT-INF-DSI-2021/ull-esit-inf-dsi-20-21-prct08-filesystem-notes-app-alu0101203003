@@ -80,6 +80,22 @@ export class Usuario {
     }
 
     /**
+     * Función eliminarNota.
+     * Permite eliminar una nota en el directorio del usuario
+     * @param titulo titulo de la nota
+     */ 
+    public eliminarNota(titulo :string){
+        if (!this.existeNota(this.nombre,titulo)){
+            console.log(chalk.red("Error. La nota no existe"));
+        } else {
+            fs.rm(`src/aplicacion/notas/${this.nombre}/${titulo}.json`, () => {
+                console.log(chalk.green('Nota eliminada con éxito'));
+            });
+        }
+    }
+
+
+    /**
      * Función existeUsuario.
      * Permite comprobar si está creado el directorio del usuario
      * @param nombre del usuario
