@@ -42,5 +42,50 @@ const chalk=require('chalk')
     },
   });
 
+  /**
+ * Comando modify.
+ * Modifica una nota al directorio del usuario
+ */
+ yargs.command({
+  command: 'modify',
+  describe: 'Modifica una nueva nota',
+  builder: {
+    usuario: {
+      describe: 'Nombre del usuario',
+      demandOption: true,
+      type: 'string',
+    },
+    titulo: {
+      describe: 'Titulo de la nota',
+      demandOption: true,
+      type: 'string',
+    },
+    tituloMod: {
+      describe: 'Titulo nuevo de la nota',
+      demandOption: true,
+      type: 'string',
+    },
+    cuerpoMod: {
+      describe: 'Cuerpo nuevo de la nota',
+      demandOption: true,
+      type: 'string',
+    },
+    colorMod: {
+      describe: 'Color nuevo de la nota',
+      demandOption: true,
+      type: 'string',
+    },
+  },
+  handler(argv) {
+    if (typeof argv.usuario === 'string' && typeof argv.titulo === 'string' && typeof argv.tituloMod === 'string'&& typeof argv.cuerpoMod === 'string' && typeof argv.colorMod === 'string') {
+      var usuario = new Usuario(argv.usuario);
+      usuario.modificarNota(argv.titulo, argv.tituloMod, argv.cuerpoMod, argv.colorMod);
+      
+    } else {
+      console.log(chalk.red("Error. Comando mal especificado"));
+    }
+  },
+});
+
   yargs.argv;
 

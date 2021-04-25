@@ -52,6 +52,10 @@ describe('Pruebas App', () => {
     it('usuario1.añadirNota("Nota1","Cuerpo","rojo") returns not null', () => {
         expect(usuario1.añadirNota("Nota1","Cuerpo","rojo")).not.to.be.equal(null);
     });
+
+    it('usuario1.modificarNota("Nota1","","Cuerpo","rojo") returns not null', () => {
+        expect(usuario1.modificarNota("Nota1","","Cuerpo","rojo")).not.to.be.equal(null);
+    });
     
   });
 

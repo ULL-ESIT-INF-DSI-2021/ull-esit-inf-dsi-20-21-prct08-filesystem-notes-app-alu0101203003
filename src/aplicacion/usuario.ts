@@ -41,10 +41,49 @@ export class Usuario {
             var notaFormateada = nota.formatear();
             fs.writeFile(`src/aplicacion/notas/${this.nombre}/${titulo}.json`, notaFormateada, () => {
                 console.log(chalk.green('Nota añadida con éxito'));
-              });
+            });
         }
     }
 
+    /**
+     * Función modificarNota.
+     * Permite cambiar los atributos de una nota del usuario
+     * @param titulo titulo actual de la nota
+     * @param cuerpo cuerpo actual de la nota
+     * @param color color actual de la nota
+     */ 
+    public modificarNota(titulo :string, tituloMod :string, cuerpoMod :string, colorMod :string){
+        if (!this.existeNota(this.nombre,titulo)){
+            console.log(chalk.red("Error. La nota no existe"));
+        } else {
+            var nota = fs.readFileSync(`src/aplicacion/notas/${this.nombre}/${titulo}.json`);
+            var notaParseada = JSON.parse(nota.toString());
+            var notaMod = new Nota(notaParseada.titulo,notaParseada.cuerpo,notaParseada.color);
+
+            if (tituloMod !== ""){
+                notaMod.setTitulo(tituloMod);
+                fs.renameSync(`src/aplicacion/notas/${this.nombre}/${titulo}.json`, `src/aplicacion/notas/${this.nombre}/${tituloMod}.json`);
+            }
+            
+            if (cuerpoMod !== ""){
+                notaMod.setCuerpo(cuerpoMod);
+            }
+
+            if (colorMod !== ""){
+                notaMod.setColor(colorMod);
+            }
+
+            fs.writeFile(`src/aplicacion/notas/${this.nombre}/${notaMod.getTitulo()}.json`, notaMod.formatear(), () => {
+                console.log(chalk.green('Nota modificada con éxito'));
+            });
+        }
+    }
+
+    /**
+     * Función existeUsuario.
+     * Permite comprobar si está creado el directorio del usuario
+     * @param nombre del usuario
+     */ 
     public existeUsuario (nombre :string){
         if (fs.existsSync(`src/aplicacion/notas/${nombre}`)){
             return true
@@ -53,6 +92,12 @@ export class Usuario {
         }
     }
     
+    /**
+     * Función existeNota.
+     * Permite comprobar si está creada la nota dentro del directorio del usuario
+     * @param nombre del usuario
+     * @param titulo de la nota
+     */ 
     public existeNota (nombre :string, titulo :string){
         if (fs.existsSync(`src/aplicacion/notas/${nombre}/${titulo}.json`)){
             return true
