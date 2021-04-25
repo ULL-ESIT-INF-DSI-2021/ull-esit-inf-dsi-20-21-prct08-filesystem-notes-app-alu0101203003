@@ -136,6 +136,22 @@ export class Usuario {
             console.log(titulosColoreados)
         });
     }
+
+    /**
+     * Función leerNota.
+     * Permite leer una nota en el directorio del usuario
+     * @param titulo titulo de la nota
+     */ 
+     public leerNota(titulo :string){
+        if (!this.existeNota(this.nombre,titulo)){
+            console.log(chalk.red("Error. La nota no existe"));
+        } else {
+            var nota = fs.readFileSync(`src/aplicacion/notas/${this.nombre}/${titulo}.json`);
+            var notaParseada = JSON.parse(nota.toString());
+            var notaColoreada :string = this.colorear(`Título:\n${notaParseada.titulo}\n\nCuerpo:\n${notaParseada.cuerpo}`,notaParseada.color);
+            console.log(notaColoreada)
+        }
+    }
     
     public colorear (texto :string, color :string){
         var resultado = "";

@@ -58,13 +58,18 @@ describe('Pruebas App', () => {
         expect(usuario1.colorear("texto","rojo")).to.be.equal(chalk.red("texto"));
     });
 
+    it('usuario1.listarNotas() returns not null', () => {
+        expect(usuario1.listarNotas()).not.to.be.equal(null);
+    });
+
+    it('usuario1.leerNota("Nota1") returns not null', () => {
+        expect(usuario1.leerNota("Nota1")).not.to.be.equal(null);
+    });
+
     it('usuario1.eliminarNota("Nota1") returns not null', () => {
         expect(usuario1.eliminarNota("Nota1")).not.to.be.equal(null);
     });
 
-    it('usuario1.listarNotas() returns not null', () => {
-        expect(usuario1.listarNotas()).not.to.be.equal(null);
-    });
     
   });
 

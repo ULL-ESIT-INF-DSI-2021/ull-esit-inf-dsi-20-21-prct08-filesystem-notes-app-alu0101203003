@@ -142,5 +142,35 @@ const chalk=require('chalk')
   },
 });
 
+/**
+ * Comando read.
+ * Lee una nota al directorio del usuario
+ */
+ yargs.command({
+  command: 'read',
+  describe: 'lee una nota',
+  builder: {
+    usuario: {
+      describe: 'Nombre del usuario',
+      demandOption: true,
+      type: 'string',
+    },
+    titulo: {
+      describe: 'Titulo de la nota',
+      demandOption: true,
+      type: 'string',
+    },
+  },
+  handler(argv) {
+    if (typeof argv.usuario === 'string' && typeof argv.titulo === 'string') {
+      var usuario = new Usuario(argv.usuario);
+      usuario.leerNota(argv.titulo);
+      
+    } else {
+      console.log(chalk.red("Error. Comando mal especificado"));
+    }
+  },
+});
+
 yargs.argv;
 
