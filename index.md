@@ -29,4 +29,4 @@ La estructura debería quedar similar a las siguientes fotos:
 
 Será necesario implementar las clases del ejercicio en ficheros diferentes. Los ficheros que dependan de otros (o de otros paquetes) requeriran de un `import` del recurso que necesiten:
 
-<img src="img/Captura1d.PNG" alt="" /> <img src="img/Captura1e.PNG" alt="" />
+<img src="img/Captura1d.PNG" alt="" widht="250"/> <img src="img/Captura1e.PNG" alt="" />
